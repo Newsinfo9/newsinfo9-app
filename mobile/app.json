@@ -28,7 +28,10 @@
       "supportsTablet": false
     },
     "extra": {
-      "apiUrl": "https://newsinfo9.vercel.app"
+      "apiUrl": "https://newsinfo9.vercel.app",
+      "eas": {
+        "projectId": "dbdd809f-f501-436a-b412-ac2a4735e102"
+      }
     },
     "plugins": [
       "expo-secure-store",
@@ -40,6 +43,7 @@
         }
       ]
     ],
-    "description": "NEWS INFO9 – Telugu & English short news app by Exclusive News India Private Limited"
+    "description": "NEWS INFO9 – Telugu & English short news app by Exclusive News India Private Limited",
+    "owner": "news-info9"
   }
 }
