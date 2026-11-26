@@ -8,7 +8,7 @@ export const metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://newsinfo9.vercel.app"),
   applicationName: "NEWS INFO9",
   authors: [{ name: "Exclusive News India Private Limited" }],
-  openGraph: { title: "NEWS INFO9", description: "తాజా తెలుగు షార్ట్ న్యూస్ – Local news in 60 words", images: ["/icon-512.png"] }
+  openGraph: { siteName: "NEWS INFO9", title: "NEWS INFO9", description: "తాజా తెలుగు షార్ట్ న్యూస్ – Local news in 60 words", images: ["/og.png"] }
 };
 
 export const viewport = { themeColor: "#0a6cc4", width: "device-width", initialScale: 1, viewportFit: "cover" };
