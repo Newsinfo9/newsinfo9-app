@@ -1,0 +1,21 @@
+{
+  "name": "newsinfo9-web",
+  "version": "1.0.0",
+  "private": true,
+  "description": "NEWS INFO9 – Telugu short news: website, admin panel and API (Next.js + PostgreSQL)",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^1.0.0",
+    "@vercel/blob": "^1.0.0",
+    "bcryptjs": "^3.0.2",
+    "jose": "^6.0.0",
+    "next": "^16.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "engines": { "node": ">=20" }
+}
