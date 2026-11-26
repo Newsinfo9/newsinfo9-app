@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { getSession } from "@/lib/auth";
-import { hasDb, listUsers, createUser, setUserActive } from "@/lib/db";
+import { hasDb, listUsers, createUser, setUserActive, hasAdmin } from "@/lib/db";
 
 export const dynamic = "force-dynamic";
 const CORS = { "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Headers": "Content-Type, Authorization" };
@@ -8,7 +8,7 @@ const CORS = { "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Headers
 // Current user (+ reporter list for admin)
 export async function GET() {
   const s = await getSession();
-  if (!s) return NextResponse.json({ user: null, db: hasDb }, { headers: CORS });
+  if (!s) return NextResponse.json({ user: null, db: hasDb, needsSetup: hasDb && !(await hasAdmin()) }, { headers: CORS });
   const users = s.role === "admin" && hasDb ? await listUsers() : [];
   return NextResponse.json({ user: s, users, db: hasDb }, { headers: CORS });
 }
