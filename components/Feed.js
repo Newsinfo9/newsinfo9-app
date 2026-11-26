@@ -4,6 +4,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { CATS, CAT_COLORS, DISTRICTS, DIST_INDEX } from "@/lib/constants";
 import { I18N } from "@/lib/i18n";
+import { makeShareCard } from "@/lib/shareCard";
 
 const store = {
   get(k, d) { try { const v = localStorage.getItem("ni9_" + k); return v === null ? d : JSON.parse(v); } catch { return d; } },
@@ -94,11 +95,31 @@ export default function Feed({ initialNews }) {
   useEffect(() => { if (feedRef.current) feedRef.current.scrollTop = 0; setIdx(0); }, [cat, view, district]);
 
   const storyUrl = n => `${location.origin}/?n=${encodeURIComponent(n.id)}`;
-  const shareWa = n => { const x = L(n); window.open("https://wa.me/?text=" + encodeURIComponent(`*${x.title}*\n\n${x.body}\n\n📲 NEWS INFO9: ${storyUrl(n)}`), "_blank"); };
-  const share = async n => {
-    if (navigator.share) { try { await navigator.share({ title: L(n).title, text: L(n).body, url: storyUrl(n) }); } catch {} }
+  // Share as a branded image card (logo + app name + full story). Falls back to a text link.
+  const shareText = n => { const x = L(n); return `*${x.title}*\n\n${x.body}\n\n📲 NEWS INFO9: ${storyUrl(n)}`; };
+  const shareCard = async (n, viaWa) => {
+    const x = L(n);
+    try {
+      if (navigator.canShare) {
+        toast(t("shareCard"));
+        const blob = await makeShareCard({
+          title: x.title, body: x.body, image: n.image, category: catOf(n.cat)[lang], source: n.source || "NEWS INFO9",
+          place: n.district && n.district !== "all" ? distName(n.district) : "", time: ago(n.time),
+          appLine: t("appLine"), site: location.host
+        });
+        const file = blob && new File([blob], `newsinfo9-${n.id}.png`, { type: "image/png" });
+        if (file && navigator.canShare({ files: [file] })) {
+          await navigator.share({ files: [file], text: shareText(n) });
+          return;
+        }
+      }
+    } catch (e) { if (e && e.name === "AbortError") return; }
+    if (viaWa) window.open("https://wa.me/?text=" + encodeURIComponent(shareText(n)), "_blank");
+    else if (navigator.share) { try { await navigator.share({ title: x.title, text: x.body, url: storyUrl(n) }); } catch {} }
     else { try { await navigator.clipboard.writeText(storyUrl(n)); toast(t("copied")); } catch {} }
   };
+  const shareWa = n => shareCard(n, true);
+  const share = n => shareCard(n, false);
   const toggleSave = n => {
     const s = saved.includes(n.id) ? saved.filter(x => x !== n.id) : [...saved, n.id];
     toast(saved.includes(n.id) ? t("removed") : t("savedOk")); setSaved(s); store.set("saved", s);
@@ -115,17 +136,23 @@ export default function Feed({ initialNews }) {
   const Photo = ({ n, i }) => {
     const [a, b] = CAT_COLORS[n.cat] || ["#0a8fd6", "#0657a8"];
     return (
-      <div className="photo">
+      <div className={`photo ${n.image ? "hasimg" : ""}`}>
+        {n.image ? (
+          <>
+            <img className="pic-bg" src={n.image} alt="" aria-hidden="true" />
+            <img className="pic" src={n.image} alt="" loading={i < 2 ? "eager" : "lazy"} onError={e => { e.currentTarget.parentNode.classList.add("noimg"); }} />
+          </>
+        ) : null}
         <div className="ph" style={{ background: `linear-gradient(150deg,${a},${b})` }}>
           <img className="ph-logo" src="/logo-round.png" alt="" />
           <span className="ph-cat">{catOf(n.cat)[lang]}</span>
         </div>
-        {n.image ? <img className="pic" src={n.image} alt="" loading={i < 2 ? "eager" : "lazy"} onError={e => e.currentTarget.remove()} /> : null}
         <div className="photo-shade" />
         <div className="tags">
           <span className="tag">{catOf(n.cat)[lang]}</span>
           {n.breaking && <span className="tag brk">⚡ {t("breaking")}</span>}
         </div>
+        <div className="mark"><img src="/logo-round.png" alt="" /><span>NEWS INFO<sup>9</sup></span></div>
       </div>
     );
   };
@@ -170,12 +197,12 @@ export default function Feed({ initialNews }) {
                 </div>
               </div>
               <div className="actions">
-                <button className="wa" onClick={() => shareWa(n)}>{Ico.wa}<span>{t("whatsapp")}</span></button>
+                <button className="wa" onClick={() => shareWa(n)}>{Ico.wa}<span>WhatsApp</span></button>
                 <button className="ab" onClick={() => share(n)} aria-label={t("share")}>{Ico.share}</button>
                 <button className={`ab ${on ? "on" : ""}`} onClick={() => toggleSave(n)} aria-label={t("save")}>{on ? Ico.saved : Ico.save}</button>
                 <span className="count">{i + 1}/{list.length}</span>
               </div>
-              {i === 0 && !hinted ? <div className="swipe-hint">{t("swipe")}</div> : null}
+              {i === 0 && !hinted ? <div className="swipe-hint">{Ico.up}{t("swipe")}</div> : null}
             </article>
           );
         })}
