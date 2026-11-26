@@ -1,0 +1,45 @@
+{
+  "expo": {
+    "name": "NEWS INFO9",
+    "slug": "newsinfo9",
+    "version": "3.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./assets/icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#0a6cc4"
+    },
+    "android": {
+      "package": "com.newsinfo9.app",
+      "versionCode": 3,
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#0a6cc4"
+      },
+      "permissions": [
+        "CAMERA",
+        "READ_MEDIA_IMAGES"
+      ]
+    },
+    "ios": {
+      "bundleIdentifier": "com.newsinfo9.app",
+      "supportsTablet": false
+    },
+    "extra": {
+      "apiUrl": "https://newsinfo9.vercel.app"
+    },
+    "plugins": [
+      "expo-secure-store",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Vartha photo select cheyadaniki gallery access kavali",
+          "cameraPermission": "Vartha photo teeyadaniki camera access kavali"
+        }
+      ]
+    ],
+    "description": "NEWS INFO9 – Telugu & English short news app by Exclusive News India Private Limited"
+  }
+}
