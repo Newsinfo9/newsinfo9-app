@@ -151,3 +151,20 @@ body.dark .cats{background:rgba(20,24,29,.96)}
 .adm .pv .tx{flex:1;font-size:14px;line-height:1.6}
 .adm .brandrow{display:flex;align-items:center;gap:10px}
 .adm .brandrow img{width:40px;height:40px;border-radius:10px}
+/* legal pages */
+.lp{height:100dvh;overflow-y:auto;-webkit-overflow-scrolling:touch;background:var(--bg,#f4f7fb);color:var(--ink)}
+.lp-top{background:var(--grad);padding:10px 16px;position:sticky;top:0;z-index:2}
+.lp-brand{display:flex;align-items:center;gap:8px;color:#fff;text-decoration:none;font:800 17px Inter,sans-serif}
+.lp-brand img{width:28px;height:28px;border-radius:50%;background:#fff}
+.lp-brand sup{color:#ffd600;font-size:11px}
+.lp-body{max-width:720px;margin:0 auto;padding:18px 18px 40px;font-size:14.5px;line-height:1.65}
+.lp-body h1{font-size:22px;margin:4px 0 0}
+.lp-te{color:var(--muted,#667);margin:2px 0 14px;font-family:'Noto Sans Telugu',sans-serif}
+.lp-body section{background:var(--card,#fff);border-radius:12px;padding:12px 14px;margin:10px 0;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.lp-body h2{font-size:15.5px;margin:0 0 6px;color:var(--red,#0a6cc4)}
+.lp-body p{margin:0 0 6px}
+.lp-nav{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 8px}
+.lp-nav a{font-size:13px;padding:6px 12px;border-radius:99px;background:var(--card,#fff);color:var(--red,#0a6cc4);text-decoration:none;border:1px solid rgba(10,108,196,.25)}
+.lp-foot{font-size:11.5px;color:var(--muted,#667);text-align:center;margin-top:16px}
+.legal-links{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 12px;margin-top:12px;font-size:12px}
+.legal-links a{color:var(--red,#0a6cc4);text-decoration:none}
