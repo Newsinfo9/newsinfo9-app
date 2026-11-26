@@ -1,0 +1,75 @@
+{
+  "_readme": "NEWS INFO9 news data. Kotha vartha add cheyadaniki ee list lo paina oka item add cheyandi. cat: local|ap|ts|national|sports|cinema|business|jobs|devotional. district: district id (districts.json) leda 'all'. image: optional URL. Ivi DEMO vartalu – mee nijamaina vartalatho replace cheyandi.",
+  "news": [
+    {
+      "id": "n1001", "cat": "local", "district": "kakinada", "breaking": true,
+      "time": "2026-11-26T09:30:00+05:30", "image": "",
+      "te": { "title": "కాకినాడలో NEWS INFO9 యాప్ ప్రారంభం (డెమో)", "body": "కాకినాడ కేంద్రంగా NEWS INFO9 షార్ట్ న్యూస్ యాప్ ప్రారంభమైంది. ఊరు, మండలం, జిల్లా స్థాయి వార్తలను 60 పదాల్లో తెలుగు, ఇంగ్లీష్‌లో అందించడమే లక్ష్యం. పైకి స్వైప్ చేస్తే తర్వాతి వార్త వస్తుంది. నచ్చిన వార్తను సేవ్ చేసుకోవచ్చు, వాట్సాప్‌లో షేర్ చేయవచ్చు.", "full": "ఇది డెమో వార్త. మీ నిజమైన వార్తలను data/news.json ఫైల్‌లో చేర్చండి." },
+      "en": { "title": "NEWS INFO9 app launched in Kakinada (Demo)", "body": "NEWS INFO9, a short news app based in Kakinada, has gone live. It brings village, mandal and district news in 60 words, in Telugu and English. Swipe up for the next story, save stories for later and share them on WhatsApp in one tap.", "full": "This is a demo story. Add your real news in data/news.json." },
+      "source": "NEWS INFO9 Desk"
+    },
+    {
+      "id": "n1002", "cat": "local", "district": "kakinada", "breaking": false,
+      "time": "2026-11-26T08:10:00+05:30", "image": "",
+      "te": { "title": "బీచ్ రోడ్‌లో వాకర్స్ కోసం కొత్త లైట్లు (డెమో)", "body": "నగరంలోని బీచ్ రోడ్ వెంబడి ఉదయం, సాయంత్రం నడిచే వారి సౌకర్యం కోసం కొత్త వీధి దీపాలు ఏర్పాటు చేయాలని స్థానికులు కోరుతున్నారు. ఈ విషయంపై అధికారులకు వినతిపత్రం ఇచ్చినట్టు వాకర్స్ అసోసియేషన్ సభ్యులు తెలిపారు.", "full": "డెమో వార్త – మీ రిపోర్టర్ పంపిన వివరాలతో మార్చండి." },
+      "en": { "title": "Walkers seek new lights on Beach Road (Demo)", "body": "Residents who walk along Beach Road in the mornings and evenings have asked for new street lights for their safety. Members of the walkers' association said they have submitted a representation to officials on the issue.", "full": "Demo story – replace with your reporter's details." },
+      "source": "Kakinada Reporter"
+    },
+    {
+      "id": "n1003", "cat": "ap", "district": "all", "breaking": false,
+      "time": "2026-11-26T07:45:00+05:30", "image": "",
+      "te": { "title": "రైతుల కోసం పంటల బీమా అవగాహన సదస్సులు (డెమో)", "body": "రాష్ట్రవ్యాప్తంగా రైతులకు పంటల బీమాపై అవగాహన కల్పించేందుకు గ్రామ స్థాయిలో సదస్సులు నిర్వహించనున్నట్టు సమాచారం. రైతులు తమ సమీప రైతు సేవా కేంద్రంలో వివరాలు తెలుసుకోవచ్చు.", "full": "డెమో వార్త." },
+      "en": { "title": "Crop insurance awareness meets for farmers (Demo)", "body": "Village-level awareness meetings on crop insurance are expected to be held for farmers across the state. Farmers can get details at their nearest Rythu Seva Kendram.", "full": "Demo story." },
+      "source": "AP Desk"
+    },
+    {
+      "id": "n1004", "cat": "ts", "district": "all", "breaking": false,
+      "time": "2026-11-26T07:00:00+05:30", "image": "",
+      "te": { "title": "హైదరాబాద్‌లో ట్రాఫిక్ మళ్లింపులు (డెమో)", "body": "నగరంలోని కొన్ని ప్రధాన రహదారుల్లో నిర్మాణ పనుల కారణంగా ట్రాఫిక్ మళ్లింపులు అమలులో ఉంటాయని సమాచారం. వాహనదారులు ప్రత్యామ్నాయ మార్గాలను ఉపయోగించాలని సూచించారు.", "full": "డెమో వార్త." },
+      "en": { "title": "Traffic diversions in Hyderabad (Demo)", "body": "Traffic diversions will be in place on some main roads in the city due to construction work. Motorists have been advised to use alternative routes.", "full": "Demo story." },
+      "source": "Telangana Desk"
+    },
+    {
+      "id": "n1005", "cat": "sports", "district": "all", "breaking": false,
+      "time": "2026-11-25T21:30:00+05:30", "image": "",
+      "te": { "title": "జిల్లా స్థాయి కబడ్డీ పోటీలకు రిజిస్ట్రేషన్లు (డెమో)", "body": "జిల్లా స్థాయి కబడ్డీ పోటీలకు జట్ల రిజిస్ట్రేషన్లు ప్రారంభమయ్యాయి. ఆసక్తి ఉన్న జట్లు నిర్వాహకులను సంప్రదించాలని కోరారు. విజేతలకు నగదు బహుమతులు ఉంటాయి.", "full": "డెమో వార్త." },
+      "en": { "title": "Registrations open for district kabaddi (Demo)", "body": "Team registrations have begun for the district-level kabaddi tournament. Interested teams have been asked to contact the organisers. Winners will receive cash prizes.", "full": "Demo story." },
+      "source": "Sports Desk"
+    },
+    {
+      "id": "n1006", "cat": "cinema", "district": "all", "breaking": false,
+      "time": "2026-11-25T19:00:00+05:30", "image": "",
+      "te": { "title": "ఈ వారం థియేటర్లలో విడుదలయ్యే సినిమాలు (డెమో)", "body": "ఈ వారం థియేటర్లు, ఓటీటీల్లో పలు తెలుగు సినిమాలు విడుదల కానున్నాయి. పూర్తి లిస్ట్ కోసం NEWS INFO9 సినిమా విభాగాన్ని చూడండి.", "full": "డెమో వార్త." },
+      "en": { "title": "This week's theatre and OTT releases (Demo)", "body": "Several Telugu films are set to release in theatres and on OTT this week. Check the NEWS INFO9 cinema section for the full list.", "full": "Demo story." },
+      "source": "Cinema Desk"
+    },
+    {
+      "id": "n1007", "cat": "jobs", "district": "all", "breaking": false,
+      "time": "2026-11-25T17:15:00+05:30", "image": "",
+      "te": { "title": "నిరుద్యోగ యువతకు ఉచిత నైపుణ్య శిక్షణ (డెమో)", "body": "నిరుద్యోగ యువతకు కంప్యూటర్, ఎలక్ట్రీషియన్, నర్సింగ్ అసిస్టెంట్ కోర్సుల్లో ఉచిత శిక్షణ ఇవ్వనున్నట్టు సమాచారం. అర్హులు సమీప నైపుణ్యాభివృద్ధి కేంద్రంలో దరఖాస్తు చేసుకోవచ్చు.", "full": "డెమో వార్త." },
+      "en": { "title": "Free skill training for unemployed youth (Demo)", "body": "Free training in computers, electrician work and nursing assistant courses is to be offered to unemployed youth. Eligible candidates can apply at the nearest skill development centre.", "full": "Demo story." },
+      "source": "Jobs Desk"
+    },
+    {
+      "id": "n1008", "cat": "national", "district": "all", "breaking": false,
+      "time": "2026-11-25T15:40:00+05:30", "image": "",
+      "te": { "title": "డిజిటల్ చెల్లింపుల్లో మోసాలపై జాగ్రత్త (డెమో)", "body": "తెలియని లింకులు, ఫోన్ కాల్స్ ద్వారా OTP అడిగితే ఎవరికీ చెప్పవద్దని సైబర్ నిపుణులు సూచిస్తున్నారు. మోసం జరిగితే వెంటనే 1930 నంబర్‌కు ఫిర్యాదు చేయాలి.", "full": "డెమో వార్త." },
+      "en": { "title": "Stay alert on digital payment frauds (Demo)", "body": "Cyber experts advise never sharing an OTP with unknown callers or links. If you are cheated, report it immediately on the 1930 helpline.", "full": "Demo story." },
+      "source": "National Desk"
+    },
+    {
+      "id": "n1009", "cat": "devotional", "district": "eastgodavari", "breaking": false,
+      "time": "2026-11-25T06:00:00+05:30", "image": "",
+      "te": { "title": "కార్తీక మాసం: ఆలయాల్లో భక్తుల రద్దీ (డెమో)", "body": "కార్తీక మాసం సందర్భంగా జిల్లాలోని ప్రముఖ ఆలయాల్లో భక్తుల రద్దీ పెరిగింది. తెల్లవారుజాము నుంచే దీపారాధనలు, ప్రత్యేక పూజలు జరుగుతున్నాయి.", "full": "డెమో వార్త." },
+      "en": { "title": "Karthika Masam: temples see devotee rush (Demo)", "body": "Major temples in the district are seeing heavy devotee turnout during Karthika Masam, with deeparadhana and special pujas from early morning.", "full": "Demo story." },
+      "source": "Devotional Desk"
+    },
+    {
+      "id": "n1010", "cat": "business", "district": "all", "breaking": false,
+      "time": "2026-11-25T12:20:00+05:30", "image": "",
+      "te": { "title": "చిన్న వ్యాపారులకు ఆన్‌లైన్ అమ్మకాల శిక్షణ (డెమో)", "body": "చిన్న వ్యాపారులు, మహిళా స్వయం సహాయక సంఘాలు తమ ఉత్పత్తులను ఆన్‌లైన్‌లో అమ్ముకునేలా శిక్షణ కార్యక్రమాలు నిర్వహించనున్నారు.", "full": "డెమో వార్త." },
+      "en": { "title": "Online selling training for small traders (Demo)", "body": "Training programmes will help small traders and women's self-help groups sell their products online.", "full": "Demo story." },
+      "source": "Business Desk"
+    }
+  ]
+}
