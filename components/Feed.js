@@ -249,6 +249,7 @@ export default function Feed({ initialNews }) {
             {installEvt && <button className="wide-btn" onClick={async () => { installEvt.prompt(); try { await installEvt.userChoice; } catch {} setInstallEvt(null); }}>📲 {t("install")}</button>}
             <a className="wide-btn ghost" href="mailto:newsinfo9india@gmail.com?subject=News%20Tip">✍️ {t("sendNews")}</a>
             <a className="wide-btn ghost" href="/admin">🔐 {t("reporterLogin")}</a>
+            <div className="legal-links"><a href="/about">About & Contact</a><a href="/privacy">Privacy Policy</a><a href="/terms">Terms</a><a href="/grievance">Grievance Officer</a></div>
             <p className="legal">NEWS INFO9® is a registered trademark of<br /><b>Exclusive News India Private Limited</b><br />© {new Date().getFullYear()} All rights reserved · v3.0</p>
           </div>
         </div>
