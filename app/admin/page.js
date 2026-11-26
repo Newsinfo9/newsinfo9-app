@@ -19,6 +19,8 @@ const Count = ({ v, max }) => <div className={`cnt ${words(v) > max ? "over" : "
 export default function Admin() {
   const [me, setMe] = useState(undefined);
   const [db, setDb] = useState(true);
+  const [needsSetup, setNeedsSetup] = useState(false);
+  const [setup, setSetup] = useState({ name: "", email: "", password: "" });
   const [users, setUsers] = useState([]);
   const [news, setNews] = useState([]);
   const [pending, setPending] = useState(0);
@@ -32,7 +34,7 @@ export default function Admin() {
 
   async function loadMe() {
     const j = await fetch("/api/auth/me", { cache: "no-store" }).then(r => r.json());
-    setMe(j.user); setDb(j.db); setUsers(j.users || []);
+    setMe(j.user); setDb(j.db); setUsers(j.users || []); setNeedsSetup(!!j.needsSetup);
     if (j.user) { if (j.user.role !== "admin") setTab("mine"); loadNews(j.user.role === "admin" ? "pending" : "mine"); }
   }
   async function loadNews(t = tab) {
@@ -46,6 +48,11 @@ export default function Admin() {
   async function doLogin(e) {
     e.preventDefault(); setMsg("");
     const r = await fetch("/api/auth/login", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(login) });
+    const j = await r.json(); if (!r.ok) return setMsg(j.error); loadMe();
+  }
+  async function doSetup(e) {
+    e.preventDefault(); setMsg("");
+    const r = await fetch("/api/setup", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(setup) });
     const j = await r.json(); if (!r.ok) return setMsg(j.error); loadMe();
   }
   async function logout() { await fetch("/api/auth/logout", { method: "POST" }); setMe(null); }
@@ -96,13 +103,23 @@ export default function Admin() {
   if (!me) return (
     <div className="adm" style={{ maxWidth: 420 }}>
       <h1><span className="brandrow"><img src="/logo-round.png" alt="" /> NEWS INFO9 Admin</span></h1>
+      {needsSetup && (
+        <form className="box" onSubmit={doSetup}>
+          <b>🛠️ First-time setup – Admin account create cheyandi</b>
+          <label>Name</label><input value={setup.name} onChange={e => setSetup({ ...setup, name: e.target.value })} required />
+          <label>Admin email</label><input type="email" value={setup.email} onChange={e => setSetup({ ...setup, email: e.target.value })} required />
+          <label>Password (min 8)</label><input type="password" value={setup.password} onChange={e => setSetup({ ...setup, password: e.target.value })} required minLength={8} />
+          <div style={{ marginTop: 14 }}><button className="btn">Create admin</button></div>
+          {msg && <div className="err">{msg}</div>}
+        </form>
+      )}
       {!db && <div className="note">⚠️ Database inka connect avvaledu. Vercel → Storage → Postgres (Neon) connect chesi, ADMIN_EMAIL / ADMIN_PASSWORD / AUTH_SECRET environment variables add cheyandi.</div>}
-      <form className="box" onSubmit={doLogin}>
+      {!needsSetup && <form className="box" onSubmit={doLogin}>
         <label>Email</label><input type="email" value={login.email} onChange={e => setLogin({ ...login, email: e.target.value })} required />
         <label>Password</label><input type="password" value={login.password} onChange={e => setLogin({ ...login, password: e.target.value })} required />
         <div style={{ marginTop: 14 }}><button className="btn">Login</button> <a className="btn g" href="/">← Website</a></div>
         {msg && <div className="err">{msg}</div>}
-      </form>
+      </form>}
       <p className="legal">NEWS INFO9® · Exclusive News India Private Limited</p>
     </div>
   );
